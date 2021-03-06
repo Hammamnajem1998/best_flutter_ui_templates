@@ -4,7 +4,7 @@ import 'package:best_flutter_ui_templates/custom_drawer/drawer_user_controller_s
 import 'package:best_flutter_ui_templates/custom_drawer/home_drawer_signUp.dart';
 import 'package:best_flutter_ui_templates/feedback_screen.dart';
 import 'package:best_flutter_ui_templates/help_screen.dart';
-import 'package:best_flutter_ui_templates/home_screen.dart';
+import 'package:best_flutter_ui_templates/SignUp_screen.dart';
 import 'package:best_flutter_ui_templates/invite_friend_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class _NavigationSignInSignUp extends State<NavigationSignInSignUp> {
   @override
   void initState() {
     drawerIndex = DrawerIndexSignUp.SignIn;
-    screenView = const MyHomePage();
+    screenView = const SignInPage();
     super.initState();
   }
 
@@ -53,7 +53,7 @@ class _NavigationSignInSignUp extends State<NavigationSignInSignUp> {
       drawerIndex = drawerIndexdata;
       if (drawerIndex == DrawerIndexSignUp.SignIn) {
         setState(() {
-          screenView = const MyHomePage();
+          screenView = const SignInPage();
         });
       } else if (drawerIndex == DrawerIndexSignUp.SignUpCareer) {
         setState(() {
