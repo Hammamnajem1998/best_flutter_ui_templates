@@ -1,18 +1,18 @@
 import 'package:best_flutter_ui_templates/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class HomeDrawer extends StatefulWidget {
-  const HomeDrawer({Key key, this.screenIndex, this.iconAnimationController, this.callBackIndex}) : super(key: key);
+class HomeDrawerSignUp extends StatefulWidget {
+  const HomeDrawerSignUp({Key key, this.screenIndex, this.iconAnimationController, this.callBackIndex}) : super(key: key);
 
   final AnimationController iconAnimationController;
-  final DrawerIndex screenIndex;
-  final Function(DrawerIndex) callBackIndex;
+  final DrawerIndexSignUp screenIndex;
+  final Function(DrawerIndexSignUp) callBackIndex;
 
   @override
-  _HomeDrawerState createState() => _HomeDrawerState();
+  _HomeDrawerSignUpState createState() => _HomeDrawerSignUpState();
 }
 
-class _HomeDrawerState extends State<HomeDrawer> {
+class _HomeDrawerSignUpState extends State<HomeDrawerSignUp> {
   List<DrawerList> drawerList;
   @override
   void initState() {
@@ -23,33 +23,23 @@ class _HomeDrawerState extends State<HomeDrawer> {
   void setDrawerListArray() {
     drawerList = <DrawerList>[
       DrawerList(
-        index: DrawerIndex.HOME,
-        labelName: 'Home',
+        index: DrawerIndexSignUp.SignIn,
+        labelName: 'SignIn',
         icon: Icon(Icons.home),
       ),
       DrawerList(
-        index: DrawerIndex.Help,
-        labelName: 'Help',
+        index: DrawerIndexSignUp.SignUpCareer,
+        labelName: 'SignUp As career',
         isAssetsImage: true,
         imageName: 'assets/images/supportIcon.png',
       ),
       DrawerList(
-        index: DrawerIndex.FeedBack,
-        labelName: 'FeedBack',
+        index: DrawerIndexSignUp.SignUpUser,
+        labelName: 'SignUp as user',
         icon: Icon(Icons.help),
       ),
       DrawerList(
-        index: DrawerIndex.Invite,
-        labelName: 'Invite Friend',
-        icon: Icon(Icons.group),
-      ),
-      DrawerList(
-        index: DrawerIndex.Share,
-        labelName: 'Rate the app',
-        icon: Icon(Icons.share),
-      ),
-      DrawerList(
-        index: DrawerIndex.About,
+        index: DrawerIndexSignUp.About,
         labelName: 'About Us',
         icon: Icon(Icons.info),
       ),
@@ -64,65 +54,10 @@ class _HomeDrawerState extends State<HomeDrawer> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.only(top: 40.0),
-            child: Container(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  AnimatedBuilder(
-                    animation: widget.iconAnimationController,
-                    builder: (BuildContext context, Widget child) {
-                      return ScaleTransition(
-                        scale: AlwaysStoppedAnimation<double>(1.0 - (widget.iconAnimationController.value) * 0.2),
-                        child: RotationTransition(
-                          turns: AlwaysStoppedAnimation<double>(Tween<double>(begin: 0.0, end: 24.0)
-                                  .animate(CurvedAnimation(parent: widget.iconAnimationController, curve: Curves.fastOutSlowIn))
-                                  .value /
-                              360),
-                          child: Container(
-                            height: 120,
-                            width: 120,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              boxShadow: <BoxShadow>[
-                                BoxShadow(color: AppTheme.grey.withOpacity(0.6), offset: const Offset(2.0, 4.0), blurRadius: 8),
-                              ],
-                            ),
-                            child: ClipRRect(
-                              borderRadius: const BorderRadius.all(Radius.circular(60.0)),
-                              child: Image.asset('assets/images/userImage.png'),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8, left: 4),
-                    child: Text(
-                      'Hammam Najem',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: AppTheme.grey,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
           const SizedBox(
-            height: 4,
+            height: 80,
           ),
-          Divider(
-            height: 1,
-            color: AppTheme.grey.withOpacity(0.6),
-          ),
+
           Expanded(
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
@@ -132,34 +67,6 @@ class _HomeDrawerState extends State<HomeDrawer> {
                 return inkwell(drawerList[index]);
               },
             ),
-          ),
-          Divider(
-            height: 1,
-            color: AppTheme.grey.withOpacity(0.6),
-          ),
-          Column(
-            children: <Widget>[
-              ListTile(
-                title: Text(
-                  'Sign Out',
-                  style: TextStyle(
-                    fontFamily: AppTheme.fontName,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: AppTheme.darkText,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-                trailing: Icon(
-                  Icons.power_settings_new,
-                  color: Colors.red,
-                ),
-                onTap: () {},
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).padding.bottom,
-              )
-            ],
           ),
         ],
       ),
@@ -254,19 +161,16 @@ class _HomeDrawerState extends State<HomeDrawer> {
     );
   }
 
-  Future<void> navigationtoScreen(DrawerIndex indexScreen) async {
+  Future<void> navigationtoScreen(DrawerIndexSignUp indexScreen) async {
     widget.callBackIndex(indexScreen);
   }
 }
 
-enum DrawerIndex {
-  HOME,
-  FeedBack,
-  Help,
-  Share,
+enum DrawerIndexSignUp {
+  SignIn,
+  SignUpCareer,
+  SignUpUser,
   About,
-  Invite,
-  Testing,
 }
 
 class DrawerList {
@@ -282,5 +186,5 @@ class DrawerList {
   Icon icon;
   bool isAssetsImage;
   String imageName;
-  DrawerIndex index;
+  DrawerIndexSignUp index;
 }
