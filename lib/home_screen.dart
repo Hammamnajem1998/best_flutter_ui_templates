@@ -65,8 +65,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                             children: List<Widget>.generate(
                               homeList.length,
                               (int index) {
-                                final int count = homeList.length;
-                                final Animation<double> animation =
+                                final count = homeList.length;
+                                final animation =
                                     Tween<double>(begin: 0.0, end: 1.0).animate(
                                   CurvedAnimation(
                                     parent: animationController,

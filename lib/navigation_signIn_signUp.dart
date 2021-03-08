@@ -63,7 +63,7 @@ class _NavigationSignInSignUp extends State<NavigationSignInSignUp> {
         });
       } else if (drawerIndex == DrawerIndexSignUp.SignUpUser) {
         setState(() {
-          screenView = Map();
+          screenView = MyApp();
         });
       } else if (drawerIndex == DrawerIndexSignUp.About) {
         setState(() {

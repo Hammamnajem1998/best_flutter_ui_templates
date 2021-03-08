@@ -1,4 +1,5 @@
 import 'package:best_flutter_ui_templates/app_theme.dart';
+import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 
 
@@ -49,7 +50,16 @@ class _SignUpPageState extends State<SignUpPage> with TickerProviderStateMixin {
                   getUserEmailBarUI(),
                   getUserCreatePasswordBarUI(),
                   getUserConfirmPasswordBarUI(),
+                //  getUserLocationBarUI(),
+                  getLocationButtonBarUI(),
+                //  FlatButton(onPressed: null,
+
+                  //    child: Text("afeef" ,style:TextStyle(fontSize: 30))),
+
+
+
                   getSignupButtonBarUI(),
+
                 ],
               ),
             );
@@ -357,11 +367,13 @@ class _SignUpPageState extends State<SignUpPage> with TickerProviderStateMixin {
                   child: TextField(
                     onSubmitted:(String txt) {print(txt);} ,
                     keyboardType: TextInputType.emailAddress,
+
                     style: const TextStyle(
                       fontSize: 18,
                     ),
                     //cursorColor: HotelAppTheme.buildLightTheme().primaryColor,
                     decoration: InputDecoration(
+
                       border: InputBorder.none,
                       hintText: 'User Name...',
                       prefixIcon:Icon(Icons.supervised_user_circle_rounded,size: 30,),
@@ -389,4 +401,74 @@ class _SignUpPageState extends State<SignUpPage> with TickerProviderStateMixin {
       ),
     );
   }
+}
+Widget getLocationButtonBarUI() {
+  return Padding(
+    padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+    child: Row(
+      children: <Widget>[
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(right: 16, top: 10, bottom: 8),
+            child: Container(
+              decoration:  BoxDecoration(
+
+
+                //color: HotelAppTheme.buildLightTheme().backgroundColor,
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(38.0),
+                ),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                      color: Colors.grey.withOpacity(0.8),
+                      offset: const Offset(0, 2),
+                      blurRadius: 8.0),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 16, right: 16, top: 15, bottom: 15),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: const BorderRadius.all(Radius.circular(24.0)),
+                    highlightColor: Colors.transparent,
+                    child: Center(
+
+
+                      child: Text(
+                        'Get Location',
+
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 27,
+                            color: Colors.white),
+
+                      ),
+
+
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            //color: HotelAppTheme.buildLightTheme().primaryColor,
+            borderRadius: const BorderRadius.all(
+              Radius.circular(38.0),
+            ),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.4),
+                  offset: const Offset(0, 2),
+                  blurRadius: 8.0),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
 }

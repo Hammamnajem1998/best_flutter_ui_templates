@@ -38,6 +38,7 @@ class _HomeDrawerSignUpState extends State<HomeDrawerSignUp> {
         labelName: 'SignUp as user',
         icon: Icon(Icons.help),
       ),
+
       DrawerList(
         index: DrawerIndexSignUp.About,
         labelName: 'About Us',

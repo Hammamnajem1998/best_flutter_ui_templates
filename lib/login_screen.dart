@@ -84,6 +84,7 @@ class _SignInPageState extends State<SignInPage> with TickerProviderStateMixin {
   }
 
   Widget getUserPasswordBarUI() {
+    bool passwordV=true;
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
       child: Row(
@@ -119,6 +120,16 @@ class _SignInPageState extends State<SignInPage> with TickerProviderStateMixin {
                       border: InputBorder.none,
                       hintText: 'Password...',
                       prefixIcon:Icon(Icons.lock,size: 30,),
+                      suffixIcon: IconButton(
+                        icon:Icon(
+                          passwordV?Icons.visibility:Icons.visibility_off
+                        ),
+                        onPressed: (){
+                          setState(() {
+                            passwordV=!passwordV;
+                          });
+                        },
+                      )
                     ),
                   ),
                 ),
