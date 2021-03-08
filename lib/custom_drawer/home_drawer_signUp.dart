@@ -24,19 +24,14 @@ class _HomeDrawerSignUpState extends State<HomeDrawerSignUp> {
     drawerList = <DrawerList>[
       DrawerList(
         index: DrawerIndexSignUp.SignIn,
-        labelName: 'SignIn',
+        labelName: 'Sign In',
         icon: Icon(Icons.home),
       ),
       DrawerList(
         index: DrawerIndexSignUp.SignUpCareer,
-        labelName: 'SignUp As career',
+        labelName: 'Sign Up',
         isAssetsImage: true,
         imageName: 'assets/images/supportIcon.png',
-      ),
-      DrawerList(
-        index: DrawerIndexSignUp.SignUpUser,
-        labelName: 'SignUp as user',
-        icon: Icon(Icons.help),
       ),
 
       DrawerList(
@@ -170,7 +165,6 @@ class _HomeDrawerSignUpState extends State<HomeDrawerSignUp> {
 enum DrawerIndexSignUp {
   SignIn,
   SignUpCareer,
-  SignUpUser,
   About,
 }
 

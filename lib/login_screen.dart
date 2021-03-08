@@ -84,7 +84,7 @@ class _SignInPageState extends State<SignInPage> with TickerProviderStateMixin {
   }
 
   Widget getUserPasswordBarUI() {
-    bool passwordV=true;
+    var passwordV=true;
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
       child: Row(
@@ -111,7 +111,7 @@ class _SignInPageState extends State<SignInPage> with TickerProviderStateMixin {
                   child: TextFormField(
                     keyboardType: TextInputType.visiblePassword,
                     validator: (val) => val.length < 6 ? 'Password too short.' : null,
-                    obscureText: true,
+                    obscureText: passwordV,
                     style: const TextStyle(
                       fontSize: 18,
                     ),
@@ -126,6 +126,7 @@ class _SignInPageState extends State<SignInPage> with TickerProviderStateMixin {
                         ),
                         onPressed: (){
                           setState(() {
+                            print("hi fuckers333");
                             passwordV=!passwordV;
                           });
                         },

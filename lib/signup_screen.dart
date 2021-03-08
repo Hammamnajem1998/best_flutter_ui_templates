@@ -1,6 +1,8 @@
 import 'package:best_flutter_ui_templates/app_theme.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
+import 'package:best_flutter_ui_templates/map.dart';
+
 
 
 class SignUpPage extends StatefulWidget {
@@ -51,15 +53,10 @@ class _SignUpPageState extends State<SignUpPage> with TickerProviderStateMixin {
                   getUserCreatePasswordBarUI(),
                   getUserConfirmPasswordBarUI(),
                 //  getUserLocationBarUI(),
-                  getLocationButtonBarUI(),
+                  getLocationButtonBarUI(context),
                 //  FlatButton(onPressed: null,
-
                   //    child: Text("afeef" ,style:TextStyle(fontSize: 30))),
-
-
-
                   getSignupButtonBarUI(),
-
                 ],
               ),
             );
@@ -402,7 +399,7 @@ class _SignUpPageState extends State<SignUpPage> with TickerProviderStateMixin {
     );
   }
 }
-Widget getLocationButtonBarUI() {
+Widget getLocationButtonBarUI(BuildContext context) {
   return Padding(
     padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
     child: Row(
@@ -431,22 +428,22 @@ Widget getLocationButtonBarUI() {
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyMap()),
+                      );
+                    },
                     borderRadius: const BorderRadius.all(Radius.circular(24.0)),
                     highlightColor: Colors.transparent,
                     child: Center(
-
-
                       child: Text(
                         'Get Location',
-
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 27,
                             color: Colors.white),
-
                       ),
-
-
                     ),
                   ),
                 ),

@@ -61,10 +61,6 @@ class _NavigationSignInSignUp extends State<NavigationSignInSignUp> {
         setState(() {
           screenView = SignUpPage();
         });
-      } else if (drawerIndex == DrawerIndexSignUp.SignUpUser) {
-        setState(() {
-          screenView = MyApp();
-        });
       } else if (drawerIndex == DrawerIndexSignUp.About) {
         setState(() {
           screenView = InviteFriend();

@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'locations.dart' as locations;
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatefulWidget {
+class MyMap extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _MyMapState createState() => _MyMapState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyMapState extends State<MyMap> {
   final Map<String, Marker> _markers = {};
   Future<void> _onMapCreated(GoogleMapController controller) async {
     final googleOffices = await locations.getGoogleOffices();
@@ -34,6 +30,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
 
         body: GoogleMap(
@@ -42,6 +39,7 @@ class _MyAppState extends State<MyApp> {
             target: const LatLng(0, 0),
             zoom: 2,
           ),
+
           markers: _markers.values.toSet(),
         ),
       ),
